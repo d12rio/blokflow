@@ -71,7 +71,7 @@ Requests back off and retry when Storyblok's rate limit answers 429, and the fir
 ### 1. Create the extension in Storyblok
 
 1. Organization (or Partner Portal) → **Extensions** → **New Extension**, type **Sidebar**.
-2. **General:** note the slug, for example `your-org@workflow-kanban`.
+2. **General:** note the slug, for example `your-org@blokflow`.
 3. **OAuth 2.0 and Pages:** set *Index to your page* to your app's URL and *Redirection endpoint* to `<URL>/api/connect/callback`. Copy the **Client Identifier** and **Client Secret**.
 4. **Details:** turn on **Enable settings on space level**; the board keeps its settings there.
 5. Install the extension into a space with its install link, then open it from the space's sidebar under **Apps**. The first sign-in may bounce once through `/401`; that's expected.

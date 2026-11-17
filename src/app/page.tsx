@@ -2,6 +2,7 @@ import type { AppSession } from "@storyblok/app-extension-auth";
 import { connection } from "next/server";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
+import { missingConfig } from "@/auth";
 import { assignToMe, loadStagePage, loadStoryDetails, moveStory, saveSpaceSettings, saveStoryBasics, saveWorkflow } from "@/app/actions";
 import { Kanban } from "@/components/kanban";
 import { LoadingBoard } from "@/components/loading-board";
@@ -80,7 +81,17 @@ async function Board({ searchParams }: { searchParams: SearchParams }) {
   const spaceId = Number(params.space_id);
   const userId = Number(params.user_id);
 
-  const session = spaceId && userId ? await getAppSession({ spaceId, userId }) : undefined;
+  const missing = missingConfig();
+  if (missing.length) {
+    return (
+      <Notice title="Blokflow isn't configured yet">
+        The server is missing {missing.join(", ")}. On Cloudflare, add them under the Worker&apos;s Settings → Variables and
+        Secrets, then deploy again.
+      </Notice>
+    );
+  }
+
+  const session =spaceId && userId ? await getAppSession({ spaceId, userId }) : undefined;
   if (!session) redirect(signInUrl);
 
   const result = await loadBoard(session, Number(params.workflow) || null).then(

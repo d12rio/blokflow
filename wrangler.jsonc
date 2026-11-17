@@ -19,6 +19,6 @@
 	"observability": { "enabled": true },
 	"vars": {
 		// Not secret. The client id, client secret and base URL are set with `wrangler secret put`.
-		"STORYBLOK_SPACE_PLUGIN_SLUG": "d12rio@workflow-kanban"
+		"STORYBLOK_SPACE_PLUGIN_SLUG": "d12rio@blokflow"
 	}
 }

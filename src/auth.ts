@@ -6,6 +6,14 @@ function env(name: string) {
   return value;
 }
 
+const REQUIRED = ["STORYBLOK_PLUGIN_CLIENT_IDENTIFIER", "STORYBLOK_PLUGIN_CLIENT_SECRET", "STORYBLOK_PLUGIN_BASE_URL"] as const;
+
+// The names (never the values) of required settings the server doesn't have, so the page can say so
+// instead of failing to render.
+export function missingConfig(): string[] {
+  return REQUIRED.filter((name) => !process.env[name]);
+}
+
 // Read lazily so `next build` works without the plugin's secrets.
 export function getAuthParams(): AuthHandlerParams {
   return {
