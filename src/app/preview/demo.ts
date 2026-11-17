@@ -65,8 +65,8 @@ export const demoCards: Card[] = [
   card(9012, "Old roadmap", 106, { published: true }),
   card(FAILING_STORY_ID, "Locked by legal (moving this fails)", 101, { userIds: [4] }),
   // Enough stories for Drafting and In review to need more than one page.
-  ...Array.from({ length: 56 }, (_, i) => card(9100 + i, `Backlog idea ${i + 1}`, 101)),
-  ...Array.from({ length: 28 }, (_, i) => card(9200 + i, `Review batch item ${i + 1}`, 102)),
+  ...Array.from({ length: 56 }, (_, i) => card(9100 + i, `Backlog idea ${i + 1}`, 101, { updatedAt: at(-30 - i) })),
+  ...Array.from({ length: 28 }, (_, i) => card(9200 + i, `Review batch item ${i + 1}`, 102, { updatedAt: at(-30 - i) })),
 ];
 
 // Pages like Storyblok's: newest first, optionally narrowed by a search on name and slug.

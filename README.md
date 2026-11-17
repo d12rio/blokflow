@@ -4,6 +4,14 @@ Blokflow is a kanban board for Storyblok's workflow stages, as a **Space Plugin*
 
 Built with Next.js 16 and [ui-sdk](https://ui-sdk.dev), deployed on Cloudflare Workers with [OpenNext](https://opennext.js.org/cloudflare). There's no database: everything it shows and changes lives in Storyblok.
 
+![The Blokflow board: one column per workflow stage, with story cards showing slug, status, due dates and assignees](docs/screenshots/board.png)
+
+| Story details | Dark theme |
+| --- | --- |
+| ![A story opened from the board, with editable stage, due date, assignees and tags, and its workflow stage comments](docs/screenshots/story.png) | ![The board in the dark theme](docs/screenshots/board-dark.png) |
+
+<sub>Screenshots use the demo data from the dev-only `/preview` route.</sub>
+
 ## Features
 
 **The board**
