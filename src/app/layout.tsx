@@ -16,8 +16,8 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Workflow Board",
-  description: "A kanban board of Storyblok stories by workflow stage.",
+  title: "Blokflow",
+  description: "A kanban board for Storyblok workflow stages.",
 };
 
 // Storyblok opens the plugin with `?theme=…`. "dark" means its dark theme; any other value is its light one.

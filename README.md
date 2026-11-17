@@ -1,6 +1,6 @@
-# Workflow Board for Storyblok
+# Blokflow
 
-A kanban board for Storyblok's workflow stages, as a **Space Plugin** that opens in the sidebar of a Storyblok space. Each column is a stage of a workflow, each card is a story in that stage. Move cards between stages, filter to what's assigned to you, and open any story to edit its basics and read its workflow stage comments without leaving the board.
+Blokflow is a kanban board for Storyblok's workflow stages, as a **Space Plugin** that opens in the sidebar of a Storyblok space. Each column is a stage of a workflow, each card is a story in that stage. Move cards between stages, filter to what's assigned to you, and open any story to edit its basics and read its workflow stage comments without leaving the board.
 
 Built with Next.js 16 and [ui-sdk](https://ui-sdk.dev), deployed on Cloudflare Workers with [OpenNext](https://opennext.js.org/cloudflare). There's no database: everything it shows and changes lives in Storyblok.
 
@@ -90,13 +90,13 @@ ngrok http 3124              # in another terminal; use its https URL in the ext
 
 ## Deploy to Cloudflare Workers
 
-The app runs on Workers through OpenNext. `wrangler.jsonc` names the Worker `storyblok-workflow-kanban` and sets the plugin slug as a plain variable; the other three values are secrets.
+The app runs on Workers through OpenNext. `wrangler.jsonc` names the Worker `blokflow` and sets the plugin slug as a plain variable; the other three values are secrets.
 
 ```bash
 npx wrangler login                                        # once; opens Cloudflare in your browser
 npx wrangler secret put STORYBLOK_PLUGIN_CLIENT_IDENTIFIER
 npx wrangler secret put STORYBLOK_PLUGIN_CLIENT_SECRET
-npx wrangler secret put STORYBLOK_PLUGIN_BASE_URL         # e.g. https://storyblok-workflow-kanban.<subdomain>.workers.dev
+npx wrangler secret put STORYBLOK_PLUGIN_BASE_URL         # e.g. https://blokflow.<subdomain>.workers.dev
 npm run deploy                                            # builds with OpenNext and deploys
 ```
 

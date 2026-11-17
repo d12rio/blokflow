@@ -271,7 +271,7 @@ export function Kanban({ session, actions, workflows, workflow, stages, initial,
     <div className="app">
       <header className="app-header">
         <div className="app-title">
-          <h1>Workflow board</h1>
+          <h1>Blokflow</h1>
           <p>
             {total} {total === 1 ? "story" : "stories"} in {workflow.name}
           </p>
